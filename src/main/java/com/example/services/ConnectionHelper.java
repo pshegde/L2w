@@ -41,7 +41,7 @@ public class ConnectionHelper
     . "port=5432;"
     . "sslmode=require;"
     . "password=p28xwd9pjcrzyzp6mf74m99cze";*/
-				String url = "jdbc:postgresql://ec2-107-20-147-106.compute-1.amazonaws.com:5432/dfurd2s0mhhvke?user=topxkicidtdcyv&password=dolNXmMjTHCOBUA0ptcVvSZs5s&ssl=true";
+				String url = "jdbc:postgresql://ec2-107-20-147-106.compute-1.amazonaws.com:5432/dfurd2s0mhhvke?user=topxkicidtdcyv&password=dolNXmMjTHCOBUA0ptcVvSZs5s&ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
 				conn = DriverManager.getConnection(url);
 			}
 
