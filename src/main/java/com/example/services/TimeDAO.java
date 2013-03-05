@@ -12,7 +12,7 @@ import java.util.TimeZone;
 import com.example.models.Time;
 
 public class TimeDAO {
-	 public Time findAll() {
+	 public List<Time> findAll() {
 	        List<Time> list = new ArrayList<Time>();
 	        Connection c = null;
 	    	String sql = "SELECT * from time";
@@ -30,13 +30,13 @@ public class TimeDAO {
 			} finally {
 				ConnectionHelper.close(c);
 			}
-	        return list.get(0);
+	        return list;
 	    }
 	 
 	 protected Time processSummaryRow(ResultSet rs) throws SQLException {
 	    	Time time = new Time();
 	    	 final Calendar now = Calendar.getInstance(TimeZone.getDefault());
-	    	 time.setName(rs.getString(0));
+	    	 time.setName(rs.getString(1));
 	         time.setTimezone(now.getTimeZone().getDisplayName());
 	         time.setYear( now.get(Calendar.YEAR));
 	         time.setMonth(now.get(Calendar.MONTH) + 1);

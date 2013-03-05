@@ -1,5 +1,7 @@
 package com.example.services;
 
+import java.util.List;
+
 import com.example.models.Time;
 
 import javax.ws.rs.GET;
@@ -14,8 +16,8 @@ public class TimeService {
 	TimeDAO dao = new TimeDAO();
 	
     @GET
-    public Time get() {
-        return new Time();
+    public List<Time> get() {
+        return new TimeDAO().findAll();
     }
 
 }
