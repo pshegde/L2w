@@ -30,10 +30,7 @@ public class TimeDAO {
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	            throw new RuntimeException(e);
-			} catch (URISyntaxException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} finally {
+			}  finally {
 				ConnectionHelper.close(c);
 			}
 	        return list;

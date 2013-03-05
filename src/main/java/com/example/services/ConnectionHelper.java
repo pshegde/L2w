@@ -27,42 +27,42 @@ public class ConnectionHelper
 	//		}
 	//	}
 
-//	public static Connection getConnection() throws SQLException {
-//		try {
-//			if (conn == null) {
-//				try {  
-//				    Class.forName("org.postgresql.Driver"); 
-//				    System.out.println(" === === DRIVER FOUND === === ");   
-//				} catch (ClassNotFoundException e) {
-//				    e.printStackTrace();
-//				    System.out.println(" === === DRIVER NOT FOUND === === ");
-//				}
-//				/*$dsn = "pgsql:"
-//    . "host=ec2-184-73-194-179.compute-1.amazonaws.com;"
-//    . "dbname=ul28zxpr39no1rr;"
-//    . "user=dj1wcxb3x9fy3x5;"
-//    . "port=5432;"
-//    . "sslmode=require;"
-//    . "password=p28xwd9pjcrzyzp6mf74m99cze";*/
-//				String url = "jdbc:postgresql://ec2-107-20-147-106.compute-1.amazonaws.com:5432/dfurd2s0mhhvke?user=topxkicidtdcyv&password=dolNXmMjTHCOBUA0ptcVvSZs5s&ssl=true";
-//				conn = DriverManager.getConnection(url);
-//			}
-//
-//		} catch (SQLException e) {
-//			throw e;
-//		}
-//		return conn;
-//	}
+	public static Connection getConnection() throws SQLException {
+		try {
+			if (conn == null) {
 
-	public static Connection getConnection() throws URISyntaxException, SQLException {
-	    URI dbUri = new URI(System.getenv("DATABASE_URL"));
+				Class.forName("org.postgresql.Driver"); 
+				System.out.println(" === === DRIVER FOUND === === ");   
 
-	    String username = dbUri.getUserInfo().split(":")[0];
-	    String password = dbUri.getUserInfo().split(":")[1];
-	    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+				/*$dsn = "pgsql:"
+    . "host=ec2-184-73-194-179.compute-1.amazonaws.com;"
+    . "dbname=ul28zxpr39no1rr;"
+    . "user=dj1wcxb3x9fy3x5;"
+    . "port=5432;"
+    . "sslmode=require;"
+    . "password=p28xwd9pjcrzyzp6mf74m99cze";*/
+				String url = "jdbc:postgresql://ec2-107-20-147-106.compute-1.amazonaws.com:5432/dfurd2s0mhhvke?user=topxkicidtdcyv&password=dolNXmMjTHCOBUA0ptcVvSZs5s&ssl=true";
+				conn = DriverManager.getConnection(url);
+			}
 
-	    return DriverManager.getConnection(dbUrl, username, password);
+		} catch (SQLException e) {
+			throw e;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println(" === === DRIVER NOT FOUND === === ");
+		}
+		return conn;
 	}
+
+	//	public static Connection getConnection() throws URISyntaxException, SQLException {
+	//	    URI dbUri = new URI(System.getenv("DATABASE_URL"));
+	//
+	//	    String username = dbUri.getUserInfo().split(":")[0];
+	//	    String password = dbUri.getUserInfo().split(":")[1];
+	//	    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+	//
+	//	    return DriverManager.getConnection(dbUrl, username, password);
+	//	}
 
 	public static void close(Connection connection)
 	{
