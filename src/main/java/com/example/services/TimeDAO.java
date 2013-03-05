@@ -1,5 +1,6 @@
 package com.example.services;
 
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
+
+import javax.ws.rs.core.UriBuilderException;
 
 import com.example.models.Time;
 
@@ -27,6 +30,9 @@ public class TimeDAO {
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	            throw new RuntimeException(e);
+			} catch (URISyntaxException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			} finally {
 				ConnectionHelper.close(c);
 			}
