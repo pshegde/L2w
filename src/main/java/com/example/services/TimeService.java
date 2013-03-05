@@ -10,7 +10,9 @@ import javax.ws.rs.core.MediaType;
 @Path("/time")
 @Produces(MediaType.APPLICATION_JSON)
 public class TimeService {
-
+	
+	TimeDAO dao = new TimeDAO();
+	
     @GET
     public Time get() {
         return new Time();
