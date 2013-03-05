@@ -30,6 +30,13 @@ public class ConnectionHelper
 	public static Connection getConnection() throws SQLException {
 		try {
 			if (conn == null) {
+				try {  
+				    Class.forName("org.postgresql.Driver"); 
+				    System.out.println(" === === DRIVER FOUND === === ");   
+				} catch (ClassNotFoundException e) {
+				    e.printStackTrace();
+				    System.out.println(" === === DRIVER NOT FOUND === === ");
+				}
 				String url = "jdbc:postgresql://ec2-107-20-147-106.compute-1.amazonaws.com:5432/dfurd2s0mhhvke?user=topxkicidtdcyv&password=dolNXmMjTHCOBUA0ptcVvSZs5s&ssl=true";
 				conn = DriverManager.getConnection(url);
 			}
